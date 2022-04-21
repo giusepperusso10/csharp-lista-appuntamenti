@@ -9,33 +9,38 @@ namespace ListaAppuntamenti
 
 		public Appuntamento(DateTime dataOra, string nome, string localitaAppuntamento)
 		{
-			this.dataOra = ControlloDataEsatta(dataOra);
+			this.dataOra = dataOra;
+			ControlloDataEsatta();
 			this.nome = nome;
 			this.localitaAppuntamento = localitaAppuntamento;
 			
 		}
 
-		public DateTime ControlloDataEsatta(DateTime dataOra)
+		public void ControlloDataEsatta()
         {
-			this.dataOra = dataOra;
+			
 			DateTime dataOraAttuale = DateTime.Now;
 
-			if (dataOra >= dataOraAttuale)
+			if (dataOra <= dataOraAttuale)
             {
-				Console.WriteLine("Data accettata");
-				return dataOra;
-            } else
-            {
-				Console.WriteLine("Data non accettata");
-			}
-			return dataOra;
+				throw new ArgumentOutOfRangeException("Non puoi inserire data nel passato");
+            } 
         }
 
 		public DateTime CambioData(DateTime nuovaData)
         {
-			this.dataOra = ControlloDataEsatta(nuovaData);
+			this.dataOra = nuovaData;
+			ControlloDataEsatta();
 			return dataOra;
         }
-	}
+
+        public override string ToString()
+        {
+			Console.WriteLine("La data è: " + dataOra);
+			Console.WriteLine("Il nome è: " + nome);
+			Console.WriteLine("La località è: " + localitaAppuntamento);
+			return base.ToString();
+        }
+    }
 }
 
