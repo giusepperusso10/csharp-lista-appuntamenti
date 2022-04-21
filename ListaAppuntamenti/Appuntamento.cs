@@ -4,8 +4,8 @@ namespace ListaAppuntamenti
 	public class Appuntamento
 	{
 		private DateTime dataOra;
-		private string nome { get; }
-		private string localitaAppuntamento { get; }
+		private string nome { get; set; }
+		private string localitaAppuntamento { get; set; }
 
 		public Appuntamento(DateTime dataOra, string nome, string localitaAppuntamento)
 		{
@@ -14,6 +14,16 @@ namespace ListaAppuntamenti
 			this.nome = nome;
 			this.localitaAppuntamento = localitaAppuntamento;
 			
+		}
+
+		public string GetNome()
+        {
+			return nome;
+        }
+
+		public string GetLocalitaAppuntamento()
+		{
+			return localitaAppuntamento;
 		}
 
 		public void ControlloDataEsatta()
@@ -36,9 +46,9 @@ namespace ListaAppuntamenti
 
         public override string ToString()
         {
-			Console.WriteLine("La data è: " + dataOra);
 			Console.WriteLine("Il nome è: " + nome);
 			Console.WriteLine("La località è: " + localitaAppuntamento);
+			Console.WriteLine("La data è: " + dataOra);
 			return base.ToString();
         }
     }
