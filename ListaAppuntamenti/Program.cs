@@ -67,8 +67,8 @@ foreach (Appuntamento appuntamento in nuovaListaAppuntamenti)
 
 
 
-
-while (true)
+bool uscita = false;
+while (!uscita)
 {
     Console.Write("Vuoi modificare un appuntamento? (si/no): ");
     string scelta = Console.ReadLine().ToLower();
@@ -130,6 +130,7 @@ while (true)
         case "no":
             Console.WriteLine("Grazie");
             Console.WriteLine("");
+            uscita = true;
             break;
         default:
             Console.WriteLine("Mi dispiace opzione non contemplata");
