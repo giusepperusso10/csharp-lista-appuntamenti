@@ -46,10 +46,8 @@ namespace ListaAppuntamenti
 
         public override string ToString()
         {
-			Console.WriteLine("Il nome è: " + nome);
-			Console.WriteLine("La località è: " + localitaAppuntamento);
-			Console.WriteLine("La data è: " + dataOra);
-			return base.ToString();
+			string appuntamentoCompleto = "------ \n Appuntamento" + nome + "\n Località:" + localitaAppuntamento + "\n in data:" + dataOra;
+			return appuntamentoCompleto;
         }
     }
 }
